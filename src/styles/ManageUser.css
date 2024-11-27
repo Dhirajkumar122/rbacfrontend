@@ -1,0 +1,214 @@
+/* General styles */
+.manage-users-container {
+    padding: 20px;
+    font-family: 'Georgia', serif; /* Elegant font family */
+    color: #333;
+    position: relative;
+    background: #f4f4f9; /* Light, subtle background color *
+    height: 100vh; /* Full viewport height */
+    padding-top: 100px;
+}
+
+/* Background dashed graph paper effect */
+.manage-users-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px),  /* Vertical lines */
+      linear-gradient(180deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px); /* Horizontal lines */
+    background-size: 50px 50px; /* Spacing between grid lines */
+    animation: moveGrid 4s linear infinite; /* Slow animation for a classic look */
+    z-index: -1; /* Keep grid behind content */
+}
+
+/* Dashed grid animation */
+@keyframes moveGrid {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px; /* Slow movement */
+    }
+}
+
+/* Users grid */
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    animation: fadeIn 1s ease-out;
+}
+
+/* User card styles */
+.user-card {
+    background-color: #fff;
+    border: 2px solid transparent; /* Initial transparent border */
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease;
+    position: relative; /* For the border animation */
+    overflow: hidden;
+}
+
+/* Animated gradient border effect on hover */
+.user-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transform: scale(1.03); /* Gentle scaling */
+}
+
+/* Add the animated gradient border on hover */
+.user-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #b8b8b8, #a9a9a9, #d0d0d0, #e0e0e0); /* Soft gradient of greys */
+    background-size: 300% 300%; /* Smooth gradient spread */
+    z-index: -1;
+    border-radius: 12px; /* Rounded corners */
+    animation: gradientBorder 6s ease infinite; /* Slow and smooth animation */
+}
+.filter-container {
+    display: flex;
+    align-items: center;   /* Vertically center the filter */
+    justify-content: flex-end;   /* Align to the right */
+    position: relative;    /* Position it absolutely to the right of the container */
+    top: -47px;             /* Adjust vertical alignment to be close to the title */
+    right: 20px;           /* Add some space from the right edge */
+}
+
+/* Role filter label */
+.filter-container label {
+    margin-right: 10px; /* Space between label and select */
+    font-size: 1rem; /* Adjust font size for consistency */
+    font-family: 'Georgia', serif; /* Consistent font family for the label */
+}
+
+/* Dropdown select */
+.filter-container select {
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 120px;
+    font-family: 'Georgia', serif;
+}
+/* Gradient border animation */
+@keyframes gradientBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.user-info p {
+    margin: 10px 0;
+    font-size: 1.1rem; /* Increase font size for better readability */
+    font-family: 'Times New Roman', serif; /* Classic serif font for details */
+    line-height: 1.6; /* Increase line height for better text spacing */
+}
+
+.user-info p strong {
+    font-weight: bold;
+    font-size: 1.2rem; /* Slightly larger for strong text */
+}
+
+.user-info p:first-of-type {
+    font-size: 1.25rem; /* Slightly larger size for name */
+    font-family: 'Palatino', serif; /* Elegant font for name */
+}
+
+/* Role dropdown styles */
+select {
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+    width: 120px;
+}
+
+/* Buttons */
+button {
+    padding: 8px 16px;
+    background-color: #5a6268; /* Subtle button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    font-family: 'Georgia', serif; /* Consistent font family */
+}
+
+button:hover {
+    background-color: #3e4749; /* Darker shade on hover */
+}
+
+/* Delete button styles */
+.delete-button {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Georgia', serif; /* Consistent font family */
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Submit button styles */
+button.submit-button {
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-left: 26px;
+    font-family: 'Georgia', serif; /* Consistent font family */
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+/* Optional: Add some specific styles for the empty state */
+.no-users-message, .no-user-data-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+    padding: 20px;
+}
+
+/* Empty state for delete action */
+.no-users-message {
+    color: #ff6347;
+}
+
+.no-user-data-message {
+    color: #ff6347;
+}

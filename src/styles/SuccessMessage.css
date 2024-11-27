@@ -1,0 +1,42 @@
+/* Classic Success Message Styling */
+.success-message {
+  background-color: #4CAF50; /* Classic green background */
+  color: white;
+  font-size: 1.2rem;
+  padding: 15px 20px;
+  border-radius: 8px;
+  position: fixed;
+  bottom: 20px; /* Position the message at the bottom */
+  left: 50%; /* Center the message horizontally */
+  transform: translateX(-50%); /* Correct centering */
+  z-index: 1000;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #388E3C; /* Optional: add border for a more defined look */
+  font-family: 'Arial', sans-serif; /* Classic font family */
+  text-align: center;
+}
+
+/* Optional: You can adjust the text styling */
+.success-message p {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Add animation for sliding in from the bottom */
+.success-message-enter {
+  transform: translateY(100%); /* Start below the screen */
+}
+
+.success-message-enter-active {
+  transform: translateY(0); /* Slide up to original position */
+  transition: transform 0.5s ease-in-out;
+}
+
+.success-message-exit {
+  transform: translateY(0);
+}
+
+.success-message-exit-active {
+  transform: translateY(100%); /* Slide down to off-screen */
+  transition: transform 0.5s ease-in-out;
+}
